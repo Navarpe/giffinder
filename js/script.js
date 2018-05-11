@@ -36,7 +36,8 @@ $(document).ready(function(){
 //Add a click handler beloe to call the function when the button is clicked
 $("#button").click(function() {
     $("#text").hide();
-    var searchTerm = $("#searchTerm").val();
+    var searchTerm = $("#searchTerm").val().toLowerCase();
+    
     var giphyUrl = "https://api.giphy.com/v1/stickers/search?q=" + searchTerm + "&api_key=dc6zaTOxFJmzC";
     
     $.ajax({
@@ -53,19 +54,34 @@ $("#button").click(function() {
               
               // STEP 5: Append the image to the page
               $("#x").html(imageHtml);
-    if (searchTerm = "wario" ) {
+    if (searchTerm === "wario") {
         $("#title").html("WAHfinder");
         $("body").css({
              "background-image": 'url("https://i.ytimg.com/vi/rJfX4JukOMc/maxresdefault.jpg")',
              "background-size": "cover",
              "background-repeat": "no-repeat"
-            
-        });
+             });
+            var mp3Link = "/Music/Greenhorn_Forest.mp3"; 
+             
+             
+           var WAH = " onclick='document.getElementById(\"" + mp3Link + "\").play()' "  ;
+             
+         $("#x").append(WAH);  
     
             
-/*    background-image:url("https://i.ytimg.com/vi/rJfX4JukOMc/maxresdefault.jpg");
-    background-size:cover;
-    background-repeat: no-repeat;*/
+/*    <audio src="./Music/Greenhorn_Forest.mp3" autoplay="autoplay" loop="loop"></audio>*/
+    }
+    
+    else {
+        $("#title").html("Giffinder");
+        $("body").css({
+             "background-image": 'url("https://i.ytimg.com/vi/rJfX4JukOMc/maxresdefault.jpg")',
+             "background-size": "cover",
+             "background-repeat": "no-repeat"
+             });
+        
+        
+        
     }
               
           },
