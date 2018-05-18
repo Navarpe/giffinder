@@ -45,7 +45,7 @@ $("#button").click(function() {
           method: "GET",
           success: function(response) {
               var imageSrc = response.data[0].images.original.url;
-              var imageHtml = "<div>" + "<img src=' " + imageSrc + "'>"+ "</div>";
+              var imageHtml = "<div>" + "<img id='"+ "image" +"' src=' " + imageSrc + "'>"+ "</div>";
               
               // STEP 3: Get the image src of the gif
               // reference: https://docs.google.com/presentation/d/1wXLyXW-xN64zUnK1forP7MGewFEev5PmJ73ia8qmQQo/edit#slide=id.g3910f2de88_0_33
@@ -61,12 +61,12 @@ $("#button").click(function() {
              "background-size": "cover",
              "background-repeat": "no-repeat"
              });
-            var mp3Link = "/Music/Greenhorn_Forest.mp3"; 
+            var mp3Link = "./Music/Greenhorn_Forest.mp3"; 
              
              
-           var WAH = " onclick='document.getElementById(\"" + mp3Link + "\").play()' "  ;
+           var WAH = " <audio src='" + mp3Link + "' autoplay='autoplay'></audio> "  ;
              
-         $("#x").append(WAH);  
+         $("#image").append(WAH);  
     
             
 /*    <audio src="./Music/Greenhorn_Forest.mp3" autoplay="autoplay" loop="loop"></audio>*/
@@ -75,10 +75,13 @@ $("#button").click(function() {
     else {
         $("#title").html("Giffinder");
         $("body").css({
-             "background-image": 'url("https://i.ytimg.com/vi/rJfX4JukOMc/maxresdefault.jpg")',
+             "background-image": 'url("https://upload.wikimedia.org/wikipedia/commons/6/62/Starsinthesky.jpg")',
              "background-size": "cover",
              "background-repeat": "no-repeat"
-             });
+             
+            
+            
+        });
         
         
         
